@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskAddAct">
+
+    <!--Background-->
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/primary"
+        />
+
+    <!--Button Back-->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="12dp"
+        android:layout_height="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/ic_back"
+        android:layout_marginBottom="40dp"
+        />
+
+    <!--Judul Tambah Task Baru-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambah Task Baru"
+        android:fontFamily="@font/mbold"
+        android:textSize="20sp"
+        android:lineHeight="26dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/btn_back"
+        android:layout_marginBottom="40dp"
+        />
+
+    <View
+        android:id="@+id/bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/bg_layout"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/bg_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        >
+        <!--Judul-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            >
+            <!--Judul-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul"
+                android:fontFamily="@font/msemibold"
+                android:textSize="12sp"
+                android:lineHeight="18dp"
+                android:textColor="@color/black"
+                />
+            <!--Input Judul-->
+            <EditText
+                android:id="@+id/input_judul"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input"
+                android:hint="Masukan Judul Tugas"
+                android:fontFamily="@font/msemibold"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                android:lineHeight="18dp"
+                android:layout_marginTop="12dp"
+                android:padding="15dp"
+                />
+        </LinearLayout>
+
+        <!--Deskripsi-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            >
+            <!--Deskripsi-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi"
+                android:fontFamily="@font/msemibold"
+                android:textSize="12sp"
+                android:lineHeight="18dp"
+                android:textColor="@color/black"
+                />
+            <!--Input Deskripsi-->
+            <EditText
+                android:id="@+id/input_deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input"
+                android:hint="Masukan Deskripsi Tugas"
+                android:fontFamily="@font/msemibold"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                android:lineHeight="18dp"
+                android:layout_marginTop="12dp"
+                android:padding="15dp"
+                />
+        </LinearLayout>
+
+        <!--Tanggal-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <!--Tanggal-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal"
+                android:fontFamily="@font/msemibold"
+                android:textSize="12sp"
+                android:lineHeight="18dp"
+                android:textColor="@color/black"
+                />
+
+            <!--Input Tanggal-->
+            <LinearLayout
+                android:id="@+id/input_tgl"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="12dp"
+                android:weightSum="3"
+
+                >
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_input"
+                    android:hint="Pilih Tanggal"
+                    android:fontFamily="@font/msemibold"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp"
+                    android:lineHeight="18dp"
+                    android:paddingLeft="15dp"
+                    android:layout_weight="2"
+                    />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="38dp"
+                    android:src="@drawable/ic_date"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="16dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Button Simpan-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn_primary"
+            android:text="Simpan"
+            android:fontFamily="@font/msemibold"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginTop="50dp"
+            />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

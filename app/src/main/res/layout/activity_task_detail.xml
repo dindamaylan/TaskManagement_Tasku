@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskDetailAct">
+
+    <!--Background-->
+    <View
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/primary"
+        />
+
+    <!--Button Back-->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="15dp"
+        android:layout_height="23dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/ic_back"
+        android:layout_marginTop="35dp"
+        />
+
+    <!--Judul Task-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Memberi Makan Anjing"
+        android:fontFamily="@font/mbold"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/btn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="50dp"
+        />
+    <!--Status-->
+    <LinearLayout
+        android:id="@+id/status_descTask"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightgray"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:gravity="center_vertical"
+        >
+        <!--status-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status : "
+            android:fontFamily="@font/msemibold"
+            android:textSize="12sp"
+            android:lineHeight="18dp"
+            android:textColor="@color/gray"
+            />
+        <!--isi status-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Do"
+            android:fontFamily="@font/msemibold"
+            android:textSize="12sp"
+            android:lineHeight="18dp"
+            android:textColor="@color/todo"
+            android:paddingLeft="5dp"
+            />
+        <!--Icon Jam-->
+        <ImageView
+            android:id="@+id/ic_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_time"
+            android:layout_marginLeft="130dp"
+            />
+        <!--Tanggal Deadline-->
+        <TextView
+            android:id="@+id/deadline_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="7 Agustus 2021"
+            android:textSize="12sp"
+            android:lineHeight="18dp"
+            android:fontFamily="@font/msemibold"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+    <!--Deskripsi-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/status_descTask"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="24dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="Lorem Ipsum is simply dummy text of the prLorem Ipsum is simply dummy text of the printing and type industry. Lorem Ipsum has been the indus standard dummy text ever since the 1500s, when an unknown asfasfas printer took a galleyinting and typesetting industry. Lorem"
+        android:fontFamily="@font/mregular"
+        android:textSize="12sp"
+        android:lineHeight="22dp"
+        android:textColor="@color/black"
+    />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:weightSum="2"
+        >
+        <!--Delete-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/btn_delete"
+            android:text="Hapus"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:fontFamily="@font/msemibold"
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            />
+        <!--Kerjakan-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/btn_primary"
+            android:text="Kerjakan"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:fontFamily="@font/msemibold"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
