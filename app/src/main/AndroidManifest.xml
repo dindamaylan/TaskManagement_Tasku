@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".HomeTodoAct"
+            android:exported="false" />
+        <activity
             android:name=".TaskDetailAct"
             android:exported="false" />
         <activity

@@ -111,7 +111,7 @@
                     >
                     <!--                CARD TODO-->
                     <LinearLayout
-                        android:id="@+id/to_do"
+                        android:id="@+id/card_todo"
                         android:layout_width="150dp"
                         android:layout_height="175dp"
                         android:orientation="vertical"
@@ -479,8 +479,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
-
 
     </ScrollView>
 

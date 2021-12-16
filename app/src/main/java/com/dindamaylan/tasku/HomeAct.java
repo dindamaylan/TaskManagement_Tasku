@@ -10,15 +10,15 @@ import android.widget.ScrollView;
 
 public class HomeAct extends AppCompatActivity {
     ScrollView scrollView;
-    LinearLayout to_do, doing, done, missing, card;
+    LinearLayout card_todo, doing, done, missing, card;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         //to_do
-        to_do = findViewById(R.id.to_do);
-        to_do.setOnClickListener(view -> {
+        card_todo = findViewById(R.id.card_todo);
+        card_todo.setOnClickListener(view -> {
             Intent goTodoList = new Intent(HomeAct.this, HomeTodoAct.class);
             startActivity(goTodoList);
         });
