@@ -23,4 +23,7 @@
     <color name="red">#F24444</color>
     <color name="btn_delete">#FCDADA</color>
 
+    <color name="tab_disable">#D3D5DC</color>
+    <color name="tab_enable">#4062FF</color>
+
 </resources>

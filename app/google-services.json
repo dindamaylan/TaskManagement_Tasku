@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549912328652",
+    "project_id": "tasku-a56ed",
+    "storage_bucket": "tasku-a56ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549912328652:android:a279adf40108d051898569",
+        "android_client_info": {
+          "package_name": "com.dindamaylan.tasku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549912328652-5qjck18v9i3n0moatf6tnout7gs9rh91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_ft9HD9Dk0iB8sET9EX9aKQfTya7kulQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549912328652-5qjck18v9i3n0moatf6tnout7gs9rh91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

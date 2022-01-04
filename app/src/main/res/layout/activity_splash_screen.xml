@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreenAct">
+    tools:context=".ui.SplashScreenAct">
     <ImageView
         android:id="@+id/logo_tasku"
         android:layout_width="140dp"

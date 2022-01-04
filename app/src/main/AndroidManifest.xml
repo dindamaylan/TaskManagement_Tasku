@@ -10,37 +10,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".HomeTodoAct"
+            android:name=".ui.HomeTodoAct"
             android:exported="false" />
         <activity
-            android:name=".TaskDetailAct"
+            android:name=".ui.TaskDetailAct"
             android:exported="false" />
         <activity
-            android:name=".TaskAddAct"
+            android:name=".ui.TaskAddAct"
             android:exported="false" />
         <activity
-            android:name=".HomeMissingAct"
+            android:name=".ui.HomeMissingAct"
             android:exported="false" />
         <activity
-            android:name=".HomeDoneAct"
+            android:name=".ui.HomeDoneAct"
             android:exported="false" />
         <activity
-            android:name=".HomeDoingAct"
+            android:name=".ui.HomeDoingAct"
             android:exported="false" />
         <activity
-            android:name=".SignUpAct"
+            android:name=".ui.SignUpAct"
             android:exported="false" />
         <activity
-            android:name=".HomeAct"
+            android:name=".ui.home.HomeAct"
             android:exported="false" />
         <activity
-            android:name=".GetStartedAct"
+            android:name=".ui.GetStartedAct"
             android:exported="false" />
         <activity
-            android:name=".SignInAct"
+            android:name=".ui.SignInAct"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenAct"
+            android:name=".ui.SplashScreenAct"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

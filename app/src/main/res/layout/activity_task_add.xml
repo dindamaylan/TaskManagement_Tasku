@@ -4,203 +4,212 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaskAddAct">
+    tools:context=".ui.TaskAddAct">
 
     <!--Background-->
     <View
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/primary"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--Button Back-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnBack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHeader"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvHeader">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+    </com.google.android.material.card.MaterialCardView>
+
     <Button
         android:id="@+id/btn_back"
         android:layout_width="12dp"
         android:layout_height="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/header"
         android:layout_marginStart="24dp"
-        android:background="@drawable/ic_back"
         android:layout_marginBottom="40dp"
-        />
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--Judul Tambah Task Baru-->
     <TextView
+        android:id="@+id/tvHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambah Task Baru"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/mbold"
-        android:textSize="20sp"
         android:lineHeight="26dp"
+        android:text="Tambah Task Baru"
         android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/header"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/btn_back"
-        android:layout_marginBottom="40dp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/bg_layout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="110dp"
         android:background="@drawable/bg_layout"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/bg_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="25dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bg_layout">
         <!--Judul-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginBottom="16dp"
-            >
+            android:orientation="vertical">
             <!--Judul-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Judul"
                 android:fontFamily="@font/msemibold"
-                android:textSize="12sp"
                 android:lineHeight="18dp"
+                android:text="Judul"
                 android:textColor="@color/black"
-                />
+                android:textSize="12sp" />
             <!--Input Judul-->
             <EditText
-                android:id="@+id/input_judul"
+                android:id="@+id/etJudul"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bg_input"
-                android:hint="Masukan Judul Tugas"
-                android:fontFamily="@font/msemibold"
-                android:textColor="@color/gray"
-                android:textSize="12sp"
-                android:lineHeight="18dp"
                 android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input"
+                android:fontFamily="@font/msemibold"
+                android:hint="Masukan Judul Tugas"
+                android:lineHeight="18dp"
                 android:padding="15dp"
-                />
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!--Deskripsi-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginBottom="16dp"
-            >
+            android:orientation="vertical">
             <!--Deskripsi-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Deskripsi"
                 android:fontFamily="@font/msemibold"
-                android:textSize="12sp"
                 android:lineHeight="18dp"
+                android:text="Deskripsi"
                 android:textColor="@color/black"
-                />
+                android:textSize="12sp" />
             <!--Input Deskripsi-->
             <EditText
-                android:id="@+id/input_deskripsi"
+                android:id="@+id/etDesc"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/bg_input"
-                android:hint="Masukan Deskripsi Tugas"
-                android:fontFamily="@font/msemibold"
-                android:textColor="@color/gray"
-                android:textSize="12sp"
-                android:lineHeight="18dp"
                 android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input"
+                android:fontFamily="@font/msemibold"
+                android:hint="Masukan Deskripsi Tugas"
+                android:lineHeight="18dp"
                 android:padding="15dp"
-                />
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <!--Tanggal-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
             <!--Tanggal-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal"
                 android:fontFamily="@font/msemibold"
-                android:textSize="12sp"
                 android:lineHeight="18dp"
+                android:text="Tanggal"
                 android:textColor="@color/black"
-                />
+                android:textSize="12sp" />
 
             <!--Input Tanggal-->
             <LinearLayout
-                android:id="@+id/input_tgl"
+                android:id="@+id/llTgl"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:background="@drawable/bg_input"
                 android:layout_marginTop="12dp"
-                android:weightSum="3"
-                android:onClick="openDatePicker"
-                >
+                android:background="@drawable/bg_input"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
-                    android:id="@+id/txtTgl"
+                    android:id="@+id/tvTgl"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="2"
                     android:background="@drawable/bg_input"
-                    android:hint="Pilih Tanggal"
                     android:fontFamily="@font/msemibold"
-                    android:textColor="@color/gray"
-                    android:textSize="12sp"
+                    android:gravity="center_vertical"
+                    android:hint="Pilih Tanggal"
                     android:lineHeight="18dp"
                     android:paddingLeft="15dp"
-                    android:gravity="center_vertical"
-                    android:layout_weight="2"
-                    />
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
+
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="38dp"
-                    android:src="@drawable/ic_date"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
                     android:layout_marginRight="16dp"
-                    />
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_date" />
             </LinearLayout>
 
         </LinearLayout>
 
         <!--Button Simpan-->
         <Button
-            android:id="@+id/btn_simpan"
+            android:id="@+id/btnSimpan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/bg_btn_primary"
-            android:text="Simpan"
-            android:fontFamily="@font/msemibold"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
             android:layout_marginTop="50dp"
-            />
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="@font/msemibold"
+            android:text="Simpan"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

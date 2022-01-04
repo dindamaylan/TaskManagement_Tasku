@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpAct">
+    tools:context=".ui.SignUpAct">
 
     <ImageView
-        android:id="@+id/ilus_signup"
+        android:id="@+id/ivBackground"
         android:layout_width="match_parent"
         android:layout_height="244dp"
         android:background="@drawable/ilus_login"
@@ -20,7 +20,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/ilus_signup"
+        app:layout_constraintTop_toBottomOf="@id/ivBackground"
         android:layout_marginTop="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,19 +34,18 @@
         >
             <!--            Hi-->
             <TextView
-                android:id="@+id/desc_login"
+                android:id="@+id/tvDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/mbold"
                 android:lineHeight="26dp"
-                android:text="Hi, Welcome Back"
+                android:text="Register Here !"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
             <!--            Nama-->
             <LinearLayout
-                android:id="@+id/layout_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -63,7 +62,7 @@
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/nama"
+                    android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="12dp"
@@ -93,20 +92,19 @@
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/username"
+                    android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/bg_input"
                     android:fontFamily="@font/msemibold"
-                    android:hint="Masukan Kata Sandi"
+                    android:hint="Masukan Username"
                     android:textColor="@color/gray"
                     android:paddingLeft="12dp"
                     android:textSize="12sp" />
             </LinearLayout>
             <!--            kata sandi-->
             <LinearLayout
-                android:id="@+id/layout_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -123,7 +121,7 @@
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="12dp"
@@ -137,7 +135,6 @@
             </LinearLayout>
             <!--            Bio-->
             <LinearLayout
-                android:id="@+id/layout_bio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -154,7 +151,7 @@
                     android:textSize="12sp" />
 
                 <EditText
-                    android:id="@+id/bio"
+                    android:id="@+id/etBio"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="12dp"
@@ -173,12 +170,23 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="24dp"
-                android:layout_marginBottom="30dp"
                 android:background="@drawable/bg_btn_primary"
                 android:gravity="center"
                 android:text="Simpan"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+            <!--            Already have an Accout-->
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an account"
+                android:fontFamily="@font/mmedium"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                />
+
         </LinearLayout>
 
     </ScrollView>

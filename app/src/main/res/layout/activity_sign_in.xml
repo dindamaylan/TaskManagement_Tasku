@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInAct">
+    tools:context=".ui.SignInAct">
 
     <ImageView
         android:id="@+id/bg_started"
@@ -64,7 +64,7 @@
             android:textColor="@color/black"
             />
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -74,6 +74,7 @@
             android:textColor="@color/gray"
             android:textSize="12sp"
             android:paddingLeft="12dp"
+            android:inputType="textPersonName"
             />
     </LinearLayout>
 
@@ -99,7 +100,7 @@
             android:textColor="@color/black"
             />
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -115,7 +116,7 @@
 
     <!--Lupa Pasword-->
     <TextView
-        android:id="@+id/password_help"
+        android:id="@+id/tvPasswordLupa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lupa Password?"
@@ -131,7 +132,7 @@
 
     <!--Button Masuk-->
     <Button
-        android:id="@+id/btn_masuk"
+        android:id="@+id/btnMasuk"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bg_btn_primary"
@@ -149,13 +150,13 @@
 
     <!--Button Daftar-->
     <Button
-        android:id="@+id/btn_daftar"
+        android:id="@+id/btnDaftar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/bg_btn_secondary"
         android:textColor="@color/black"
         android:text="Daftar"
-        app:layout_constraintTop_toBottomOf="@id/btn_masuk"
+        app:layout_constraintTop_toBottomOf="@id/btnMasuk"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="12dp"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeTodoAct">
+    tools:context=".ui.HomeTodoAct">
 
     <!--Background-->
     <View
@@ -30,10 +30,9 @@
         android:layout_marginBottom="5dp"
         >
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hi, Cristiano"
             android:fontFamily="@font/mbold"
             android:textSize="20sp"
             android:textColor="@color/white"
@@ -42,7 +41,6 @@
             android:id="@+id/bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mahasiswa"
             android:fontFamily="@font/msemibold"
             android:textSize="14sp"
             android:textColor="@color/white"
@@ -144,335 +142,32 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!--List Task Todo-->
-    <ScrollView
-        android:id="@+id/scrollListTodo"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollTabMenu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="187dp"
-        android:scrollbars="none"
         >
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            >
-            <!--Card 1-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:background="@drawable/bg_card_todo"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp"
-                >
-                <!--Deadline-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="25dp"
-                    >
-                    <ImageView
-                        android:id="@id/ic_time"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_time"
-                        />
-                    <TextView
-                        android:id="@id/deadline_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="7 Agustus 2021"
-                        android:textSize="12sp"
-                        android:lineHeight="18dp"
-                        android:fontFamily="@font/msemibold"
-                        android:layout_gravity="center_vertical"
-                        />
-                </LinearLayout>
+            android:layout_height="match_parent"
+            />
 
-                <!--Title Task-->
-                <TextView
-                    android:id="@id/task_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Memberi makan Anjing"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/msemibold"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Desc Task-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
-                    android:fontFamily="@font/mregular"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Lihat Selengkapnya-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Lihat Selengkapnya"
-                    android:textSize="12sp"
-                    android:lineHeight="18dp"
-                    android:fontFamily="@font/msemibold"
-                    android:textColor="@color/primary"
-                    />
-            </LinearLayout>
+        <!--btn add-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_tambah_task"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/bg_add_task"
+            android:src="@drawable/ic_add"
+            android:layout_gravity="bottom|end"
+            />
 
-            <!--Card 2-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:background="@drawable/bg_card_todo"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp"
-                >
-                <!--Deadline-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="25dp"
-                    >
-                    <ImageView
-                        android:id="@id/ic_time"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_time"
-                        />
-                    <TextView
-                        android:id="@id/deadline_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="7 Agustus 2021"
-                        android:textSize="12sp"
-                        android:lineHeight="18dp"
-                        android:fontFamily="@font/msemibold"
-                        android:layout_gravity="center_vertical"
-                        />
-                </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                <!--Title Task-->
-                <TextView
-                    android:id="@id/task_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Memberi makan Anjing"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/msemibold"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Desc Task-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
-                    android:fontFamily="@font/mregular"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Lihat Selengkapnya-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Lihat Selengkapnya"
-                    android:textSize="12sp"
-                    android:lineHeight="18dp"
-                    android:fontFamily="@font/msemibold"
-                    android:textColor="@color/primary"
-                    />
-            </LinearLayout>
-
-            <!--Card 3-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:background="@drawable/bg_card_todo"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp"
-                >
-                <!--Deadline-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="25dp"
-                    >
-                    <ImageView
-                        android:id="@id/ic_time"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_time"
-                        />
-                    <TextView
-                        android:id="@id/deadline_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="7 Agustus 2021"
-                        android:textSize="12sp"
-                        android:lineHeight="18dp"
-                        android:fontFamily="@font/msemibold"
-                        android:layout_gravity="center_vertical"
-                        />
-                </LinearLayout>
-
-                <!--Title Task-->
-                <TextView
-                    android:id="@id/task_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Memberi makan Anjing"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/msemibold"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Desc Task-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
-                    android:fontFamily="@font/mregular"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Lihat Selengkapnya-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Lihat Selengkapnya"
-                    android:textSize="12sp"
-                    android:lineHeight="18dp"
-                    android:fontFamily="@font/msemibold"
-                    android:textColor="@color/primary"
-                    />
-            </LinearLayout>
-
-            <!--Card 4-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:background="@drawable/bg_card_todo"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp"
-                >
-                <!--Deadline-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="25dp"
-                    >
-                    <ImageView
-                        android:id="@id/ic_time"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_time"
-                        />
-                    <TextView
-                        android:id="@id/deadline_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="7 Agustus 2021"
-                        android:textSize="12sp"
-                        android:lineHeight="18dp"
-                        android:fontFamily="@font/msemibold"
-                        android:layout_gravity="center_vertical"
-                        />
-                </LinearLayout>
-
-                <!--Title Task-->
-                <TextView
-                    android:id="@id/task_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Memberi makan Anjing"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/msemibold"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Desc Task-->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
-                    android:fontFamily="@font/mregular"
-                    android:layout_gravity="center_vertical"
-                    />
-                <!--Lihat Selengkapnya-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginStart="24dp"
-                    android:text="Lihat Selengkapnya"
-                    android:textSize="12sp"
-                    android:lineHeight="18dp"
-                    android:fontFamily="@font/msemibold"
-                    android:textColor="@color/primary"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <!--Floating Action Button Add-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_taskAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="40dp"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
