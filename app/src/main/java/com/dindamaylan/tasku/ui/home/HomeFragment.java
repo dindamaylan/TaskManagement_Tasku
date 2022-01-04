@@ -1,7 +1,6 @@
 package com.dindamaylan.tasku.ui.home;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,8 +28,8 @@ import java.util.stream.Collectors;
 
 public class HomeFragment extends Fragment implements OnGetTaskListener{
     private FragmentHomeBinding binding;
-    private static  final String UID_ARG = "user_Id";
-    private TaskMenuAdapter.MenuTaskListener listener;
+    private static final String UID_ARG = "user_Id";
+    private final TaskMenuAdapter.MenuTaskListener listener;
 
 
     public static Fragment newInstance (TaskMenuAdapter.MenuTaskListener listener, String userId){
@@ -138,10 +137,8 @@ public class HomeFragment extends Fragment implements OnGetTaskListener{
 
     @Override
     public void onItemTaskListener(TaskData task) {
-        new TaskRepo().getDeadlineTask(task.userId, ((isSuccess, listOfTask) -> {
-            Intent intent = new Intent(requireActivity(), TaskDetailAct.class);
-            intent.putExtra(TaskDetailAct.EXTRA_TASK, task);
-            startActivity(intent);
-        }));
+        Intent intent = new Intent(requireActivity(), TaskDetailAct.class);
+        intent.putExtra(TaskDetailAct.EXTRA_TASK, task);
+        startActivity(intent);
     }
 }
