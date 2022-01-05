@@ -31,17 +31,19 @@ public class TaskRepo extends UserRepo {
         FirebaseFirestore.getInstance().collection(Collection.TASK)
                 .whereEqualTo("userId", userId)
                 .addSnapshotListener(((value, error) -> {
-                    if (error != null)
+                    if (error != null) {
+                        Log.d("TAG", "getTaskByUserId: error = " + error.getMessage());
+
                         return;
-                    if (value != null && !value.isEmpty()){
+                    }
+                    if (value != null && !value.isEmpty()) {
                         ArrayList<TaskData> listOfTask = new ArrayList<>();
-                        for (DocumentSnapshot doc:value.getDocuments()) {
+                        for (DocumentSnapshot doc : value.getDocuments()) {
                             listOfTask.add(doc.toObject(TaskData.class));
                         }
                         listener.isSuccess(true, listOfTask);
                     }
                     else{
-                        Log.d("TAG", "getTaskByUserId: error = "+error.getMessage());
                         listener.isSuccess(false, new ArrayList<>());
                     }
 
@@ -54,17 +56,18 @@ public class TaskRepo extends UserRepo {
                 .orderBy("deadline", Query.Direction.ASCENDING)
                 .whereLessThan("deadline", new Helpers().getAWeenToGo())
                 .addSnapshotListener(((value, error) -> {
-                    if (error != null)
+                    if (error != null) {
+                        Log.d("TAG", "getTaskByUserId: error = " + error.getMessage());
                         return;
-                    if (value != null && !value.isEmpty()){
+                    }
+                    if (value != null && !value.isEmpty()) {
                         ArrayList<TaskData> listOfTask = new ArrayList<>();
-                        for (DocumentSnapshot doc:value.getDocuments()) {
+                        for (DocumentSnapshot doc : value.getDocuments()) {
                             listOfTask.add(doc.toObject(TaskData.class));
                         }
                         listener.isSuccess(true, listOfTask);
-                    }
-                    else{
-                        Log.d("TAG", "getTaskByUserId: error = "+error.getMessage());
+                    } else {
+
                         listener.isSuccess(false, new ArrayList<>());
                     }
 

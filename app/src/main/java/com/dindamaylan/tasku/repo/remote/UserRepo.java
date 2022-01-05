@@ -6,6 +6,7 @@ import android.util.Log;
 import com.dindamaylan.tasku.data.UserData;
 import com.dindamaylan.tasku.repo.local.LocalStore;
 import com.dindamaylan.tasku.utils.Collection;
+import com.dindamaylan.tasku.utils.Helpers;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -82,7 +83,46 @@ public class UserRepo {
                 });
     }
 
-    public void updateUser() {
+    private void getUserbyUserName(String username, onGetUserListener listener) {
+        FirebaseFirestore.getInstance().collection(Collection.DATA_USER)
+                .whereEqualTo("username", username)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.getDocuments().isEmpty()) {
+                        UserData userData = queryDocumentSnapshots.getDocuments().get(0).toObject(UserData.class);
+                        if (userData != null) {
+                            listener.onUserGet(true, userData);
+                        } else listener.onUserGet(false, new UserData());
+                    } else listener.onUserGet(false, new UserData());
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("TAG", "getUserbyUserName: failed" + e.getMessage());
+                    listener.onUserGet(false, new UserData());
+                });
+    }
 
+    public void updatePassword(String username, String passwordNew, firebaseCallback callback) {
+        getUserbyUserName(username, (isSuccess, userData) -> {
+            if (isSuccess) {
+                FirebaseFirestore.getInstance().collection(Collection.DATA_USER)
+                        .document(userData.id)
+                        .update("password", new Helpers().getHashPassword(passwordNew))
+                        .addOnSuccessListener(unused -> {
+                            callback.isSuccess(true, "Sukses mengubah password");
+                        })
+                        .addOnFailureListener(e -> {
+                            Log.d("TAG", "updatePassword + gagal : " + e.getMessage());
+                            callback.isSuccess(false, "Gagal mengubah password");
+                        });
+            }
+        });
+
+    }
+
+    public void logout(Activity context, firebaseCallback callback) {
+        LocalStore.getInstance(context).storeUserId("", (isSuccess, user_id) -> {
+            callback.isSuccess(true, "berhasil keluar");
+            callback.isSuccess(false, "gagal keluar");
+        });
     }
 }

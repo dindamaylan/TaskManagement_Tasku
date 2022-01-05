@@ -10,9 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".ui.UpdatePasswordSuccess"
-            android:exported="false" />
-        <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".ui.RePasswordAct"
             android:exported="false" />
         <activity

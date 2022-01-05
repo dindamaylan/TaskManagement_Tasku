@@ -80,19 +80,17 @@ public class HomeFragment extends Fragment implements OnGetTaskListener {
 
     private void getMenuTask(String userId) {
         new TaskRepo().getTaskByUserId(userId, (isSuccess, listOfTask) -> {
-            if (isSuccess) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    List<TaskData> todoTask = getTodoTask(listOfTask);
-                    List<TaskData> doingTask = getDoingTask(listOfTask);
-                    List<TaskData> doneTask = getDoneTask(listOfTask);
-                    List<TaskData> missingTask = getMissingTask(listOfTask);
-                    binding.rvTaskMenu.setItemAnimator(new DefaultItemAnimator());
-                    if (isAdded()) {
-                        binding.rvTaskMenu.setAdapter(new TaskMenuAdapter(
-                                requireActivity(), listener, new DataHelpers().getMenuTask(
-                                todoTask.size(), doingTask.size(), doneTask.size(), missingTask.size()
-                        )));
-                    }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                List<TaskData> todoTask = getTodoTask(listOfTask);
+                List<TaskData> doingTask = getDoingTask(listOfTask);
+                List<TaskData> doneTask = getDoneTask(listOfTask);
+                List<TaskData> missingTask = getMissingTask(listOfTask);
+                binding.rvTaskMenu.setItemAnimator(new DefaultItemAnimator());
+                if (isAdded()) {
+                    binding.rvTaskMenu.setAdapter(new TaskMenuAdapter(
+                            requireActivity(), listener, new DataHelpers().getMenuTask(
+                            todoTask.size(), doingTask.size(), doneTask.size(), missingTask.size()
+                    )));
                 }
             }
         });

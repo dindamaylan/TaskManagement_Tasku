@@ -11,11 +11,10 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/primary"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--Button Back-->
     <com.google.android.material.card.MaterialCardView
@@ -64,56 +63,52 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/lightgray"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:gravity="center_vertical"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
         <!--status-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status : "
             android:fontFamily="@font/msemibold"
-            android:textSize="12sp"
             android:lineHeight="18dp"
+            android:text="Status : "
             android:textColor="@color/gray"
-            />
+            android:textSize="12sp" />
         <!--isi status-->
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="To Do"
             android:fontFamily="@font/msemibold"
-            android:textSize="12sp"
             android:lineHeight="18dp"
-            android:textColor="@color/todo"
             android:paddingLeft="5dp"
-            />
+            android:text="To Do"
+            android:textColor="@color/todo"
+            android:textSize="16sp"
+            android:textStyle="bold" />
         <!--Icon Jam-->
         <ImageView
             android:id="@+id/ic_time"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_time"
-            android:layout_marginLeft="130dp"
-            />
+            android:layout_marginLeft="120dp"
+            android:src="@drawable/ic_time" />
         <!--Tanggal Deadline-->
         <TextView
             android:id="@+id/tvDeadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="7 Agustus 2021"
-            android:textSize="12sp"
-            android:lineHeight="18dp"
-            android:fontFamily="@font/msemibold"
             android:layout_gravity="center_vertical"
-            />
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/msemibold"
+            android:lineHeight="18dp"
+            android:text="7 Agustus 2021"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <!--Deskripsi-->
@@ -121,55 +116,51 @@
         android:id="@+id/tvDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/status"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:paddingTop="24dp"
+        android:fontFamily="@font/mregular"
+        android:lineHeight="22dp"
         android:paddingStart="24dp"
+        android:paddingTop="24dp"
         android:paddingEnd="24dp"
         android:text="Lorem Ipsum is simply dummy text of the prLorem Ipsum is simply dummy text of the printing and type industry. Lorem Ipsum has been the indus standard dummy text ever since the 1500s, when an unknown asfasfas printer took a galleyinting and typesetting industry. Lorem"
-        android:fontFamily="@font/mregular"
-        android:textSize="12sp"
-        android:lineHeight="22dp"
         android:textColor="@color/black"
-    />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/status" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:weightSum="2"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
         <!--Delete-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnHapus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:backgroundTint="@color/btn_delete"
+            android:layout_weight="1"
             android:clickable="true"
+            android:fontFamily="@font/msemibold"
             android:text="Hapus"
+            android:textAllCaps="false"
             android:textColor="@color/red"
             android:textSize="14sp"
-            android:fontFamily="@font/msemibold"
-            android:textAllCaps="false"
-            android:layout_weight="1"
-            />
+            app:backgroundTint="@color/btn_delete" />
         <!--Kerjakan-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAction"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:backgroundTint="@color/tab_enable"
-            android:text="Kerjakan"
+            android:layout_weight="1"
             android:clickable="true"
+            android:fontFamily="@font/msemibold"
+            android:text="Kerjakan"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:fontFamily="@font/msemibold"
-            android:layout_weight="1"
-            android:textAllCaps="false"
-            />
+            app:backgroundTint="@color/tab_enable" />
 
     </LinearLayout>
 
