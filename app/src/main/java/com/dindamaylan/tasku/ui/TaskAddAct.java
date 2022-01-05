@@ -78,7 +78,7 @@ public class TaskAddAct extends AppCompatActivity {
                 StatusTask.todo, selectedDate,
                 binding.etJudul.getText().toString(),
                 binding.etDesc.getText().toString(),
-                userId
+                userId, idTaskUpdate
         );
         new TaskRepo().updateTask(taskData, ((isSuccess, message) -> {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

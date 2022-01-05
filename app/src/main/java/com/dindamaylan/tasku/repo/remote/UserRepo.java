@@ -72,14 +72,17 @@ public class UserRepo {
                         }else {
                             callback.isSuccess(false, "Pengguna tidak ditemukan");
                         }
-                    }else{
+                    } else {
                         callback.isSuccess(false, "Pengguna tidak ditemukan");
                     }
                 })
                 .addOnFailureListener(e -> {
                     Log.d("Tag", "Login User : failed = " + e.getMessage());
-                    callback.isSuccess(false, "Failed "+e.getMessage());
+                    callback.isSuccess(false, "Failed " + e.getMessage());
                 });
     }
 
+    public void updateUser() {
+
+    }
 }

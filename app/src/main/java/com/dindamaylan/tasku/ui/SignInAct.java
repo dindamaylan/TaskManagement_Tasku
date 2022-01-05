@@ -1,12 +1,12 @@
 package com.dindamaylan.tasku.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.dindamaylan.tasku.R;
 import com.dindamaylan.tasku.databinding.ActivitySignInBinding;
@@ -30,6 +30,10 @@ public class SignInAct extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        binding.btnRePassword.setOnClickListener(v -> {
+            startActivity(new Intent(this, RePasswordAct.class));
+        });
 
         binding.btnMasuk.setOnClickListener(v -> {
             loginUser(binding.etUsername.getText().toString(),

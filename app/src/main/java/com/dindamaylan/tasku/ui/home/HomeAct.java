@@ -1,31 +1,18 @@
 package com.dindamaylan.tasku.ui.home;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 
-import com.dindamaylan.tasku.data.StatusTask;
-import com.dindamaylan.tasku.data.TaskData;
 import com.dindamaylan.tasku.databinding.ActivityHomeBinding;
 import com.dindamaylan.tasku.repo.local.LocalStore;
-import com.dindamaylan.tasku.repo.remote.TaskRepo;
 import com.dindamaylan.tasku.repo.remote.UserRepo;
 import com.dindamaylan.tasku.ui.TaskAddAct;
-import com.dindamaylan.tasku.ui.task.TaskAdapter;
-import com.dindamaylan.tasku.utils.DataHelpers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-public class HomeAct extends AppCompatActivity implements TaskMenuAdapter.MenuTaskListener  {
+public class HomeAct extends AppCompatActivity implements TaskMenuAdapter.MenuTaskListener {
 
     private ActivityHomeBinding binding;
     private String currentUserId;
@@ -51,22 +38,23 @@ public class HomeAct extends AppCompatActivity implements TaskMenuAdapter.MenuTa
             startActivity(new Intent(this, TaskAddAct.class));
         });
 
-        binding.btnBack.setOnClickListener(v->{
+        binding.btnBack.setOnClickListener(v -> {
             binding.btnBack.setVisibility(View.GONE);
             binding.nameAndBio.setVisibility(View.VISIBLE);
             replaceFragment(HomeFragment.newInstance(this, currentUserId));
         });
     }
+
     private void getDataUser(String user_id) {
         new UserRepo().getUserId(user_id, ((isSuccess, user) -> {
-            if (isSuccess){
-                binding.tvName.setText("Hi, "+user.name);
+            if (isSuccess) {
+                binding.tvName.setText("Hi, " + user.name);
                 binding.tvBio.setText(user.bio);
             }
         }));
     }
 
-    private void replaceFragment(Fragment fragment){
+    private void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(binding.fragmentContainer.getId(), fragment)
                 .commit();
@@ -75,16 +63,15 @@ public class HomeAct extends AppCompatActivity implements TaskMenuAdapter.MenuTa
     @Override
     public void onMenuTaskClick(String status) {
         isInMenu = true;
-        replaceFragment(MenuTaskFragment.getInstance(currentUserId,status));
+        replaceFragment(MenuTaskFragment.getInstance(currentUserId, status));
 
     }
 
     @Override
     public void onBackPressed() {
-        if (isInMenu){
-            replaceFragment(HomeFragment.newInstance(this,currentUserId));
+        if (isInMenu) {
+            replaceFragment(HomeFragment.newInstance(this, currentUserId));
             isInMenu = !isInMenu;
-        }
-        else super.onBackPressed();
+        } else super.onBackPressed();
     }
 }

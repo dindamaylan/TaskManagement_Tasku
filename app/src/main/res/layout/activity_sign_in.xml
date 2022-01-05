@@ -116,7 +116,7 @@
 
     <!--Lupa Pasword-->
     <TextView
-        android:id="@+id/tvPasswordLupa"
+        android:id="@+id/btnRePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lupa Password?"

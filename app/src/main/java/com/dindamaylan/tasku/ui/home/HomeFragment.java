@@ -1,7 +1,6 @@
 package com.dindamaylan.tasku.ui.home;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,13 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HomeFragment extends Fragment implements OnGetTaskListener{
+public class HomeFragment extends Fragment implements OnGetTaskListener {
     private FragmentHomeBinding binding;
-    private static  final String UID_ARG = "user_Id";
-    private TaskMenuAdapter.MenuTaskListener listener;
+    private static final String UID_ARG = "user_Id";
+    private final TaskMenuAdapter.MenuTaskListener listener;
 
-
-    public static Fragment newInstance (TaskMenuAdapter.MenuTaskListener listener, String userId){
+    public static Fragment newInstance(TaskMenuAdapter.MenuTaskListener listener, String userId) {
         HomeFragment fragment = new HomeFragment(listener);
         Bundle argument = new Bundle();
         argument.putString(UID_ARG, userId);
@@ -59,9 +57,9 @@ public class HomeFragment extends Fragment implements OnGetTaskListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (getArguments() != null){
+        if (getArguments() != null) {
             String user_id = getArguments().getString(UID_ARG, "");
-            if (!user_id.isEmpty()){
+            if (!user_id.isEmpty()) {
                 getAllTask(user_id);
                 getMenuTask(user_id);
             }
@@ -72,7 +70,7 @@ public class HomeFragment extends Fragment implements OnGetTaskListener{
         new TaskRepo().getDeadlineTask(user_id, ((isTaskSuccess, listOfTask) -> {
             if (isTaskSuccess) {
                 binding.rvDeadlineTask.setItemAnimator(new DefaultItemAnimator());
-                if (isAdded()){
+                if (isAdded()) {
                     Log.d("TAG", "getAllTask: " + listOfTask);
                     binding.rvDeadlineTask.setAdapter(new TaskAdapter(this, requireActivity(), new ArrayList<>(getDeadlineTask(listOfTask))));
                 }
@@ -80,16 +78,16 @@ public class HomeFragment extends Fragment implements OnGetTaskListener{
         }));
     }
 
-    private void getMenuTask(String userId){
+    private void getMenuTask(String userId) {
         new TaskRepo().getTaskByUserId(userId, (isSuccess, listOfTask) -> {
-            if (isSuccess){
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            if (isSuccess) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     List<TaskData> todoTask = getTodoTask(listOfTask);
-                    List <TaskData> doingTask = getDoingTask(listOfTask);
-                    List <TaskData> doneTask = getDoneTask(listOfTask);
-                    List <TaskData> missingTask = getMissingTask(listOfTask);
+                    List<TaskData> doingTask = getDoingTask(listOfTask);
+                    List<TaskData> doneTask = getDoneTask(listOfTask);
+                    List<TaskData> missingTask = getMissingTask(listOfTask);
                     binding.rvTaskMenu.setItemAnimator(new DefaultItemAnimator());
-                    if (isAdded()){
+                    if (isAdded()) {
                         binding.rvTaskMenu.setAdapter(new TaskMenuAdapter(
                                 requireActivity(), listener, new DataHelpers().getMenuTask(
                                 todoTask.size(), doingTask.size(), doneTask.size(), missingTask.size()
@@ -101,47 +99,44 @@ public class HomeFragment extends Fragment implements OnGetTaskListener{
     }
 
     @SuppressLint("NewApi")
-    private List<TaskData> getTodoTask(ArrayList<TaskData> listOfTask){
+    private List<TaskData> getTodoTask(ArrayList<TaskData> listOfTask) {
         return listOfTask.stream()
                 .filter(taskData -> taskData.status.equals(StatusTask.todo.toString()))
                 .collect(Collectors.toList());
     }
 
     @SuppressLint("NewApi")
-    private List<TaskData> getDoingTask(ArrayList<TaskData> listOfTask){
+    private List<TaskData> getDoingTask(ArrayList<TaskData> listOfTask) {
         return listOfTask.stream()
                 .filter(taskData -> taskData.status.equals(StatusTask.doing.toString()))
                 .collect(Collectors.toList());
     }
 
     @SuppressLint("NewApi")
-    private List<TaskData> getDoneTask(ArrayList<TaskData> listOfTask){
+    private List<TaskData> getDoneTask(ArrayList<TaskData> listOfTask) {
         return listOfTask.stream()
                 .filter(taskData -> taskData.status.equals(StatusTask.done.toString()))
                 .collect(Collectors.toList());
     }
 
     @SuppressLint("NewApi")
-    private List<TaskData> getMissingTask(ArrayList<TaskData> listOfTask){
+    private List<TaskData> getMissingTask(ArrayList<TaskData> listOfTask) {
         return listOfTask.stream()
                 .filter(taskData -> taskData.status.equals(StatusTask.missing.toString()))
                 .collect(Collectors.toList());
     }
 
     @SuppressLint("NewApi")
-    private List<TaskData> getDeadlineTask(ArrayList<TaskData> listOfTask){
-        return  listOfTask.stream()
+    private List<TaskData> getDeadlineTask(ArrayList<TaskData> listOfTask) {
+        return listOfTask.stream()
                 .filter(taskData -> !taskData.status.equals(StatusTask.done.toString()))
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public void onItemTaskListener(TaskData task) {
-        new TaskRepo().getDeadlineTask(task.userId, ((isSuccess, listOfTask) -> {
-            Intent intent = new Intent(requireActivity(), TaskDetailAct.class);
-            intent.putExtra(TaskDetailAct.EXTRA_TASK, task);
-            startActivity(intent);
-        }));
+        Intent intent = new Intent(requireActivity(), TaskDetailAct.class);
+        intent.putExtra(TaskDetailAct.EXTRA_TASK, task);
+        startActivity(intent);
     }
 }

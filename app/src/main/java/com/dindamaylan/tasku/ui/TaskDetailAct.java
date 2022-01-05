@@ -2,7 +2,6 @@ package com.dindamaylan.tasku.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,12 +34,13 @@ public class TaskDetailAct extends AppCompatActivity {
 
             binding.btnHapus.setOnClickListener(v ->
                     new TaskRepo().deleteTask(intentTask.id, (isSuccess, message) -> {
-                        Log.d("TAG", "Delete Task: " + isSuccess);
+                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                        if (isSuccess) onBackPressed();
                     })
             );
 
-            binding.btnAction.setOnClickListener(v-> {
-                switch (intentTask.status){
+            binding.btnAction.setOnClickListener(v -> {
+                switch (intentTask.status) {
                     case "todo":
                         updateStatusTask(intentTask.id, StatusTask.doing.toString());
                         break;
@@ -50,7 +50,8 @@ public class TaskDetailAct extends AppCompatActivity {
                     case "missing":
                         updateTask(intentTask);
                         break;
-                    default: createNewTask();
+                    default:
+                        createNewTask();
                 }
             });
         }
@@ -73,7 +74,7 @@ public class TaskDetailAct extends AppCompatActivity {
 
     private void updateStatusTask(String id, String newStatus) {
         new TaskRepo().updateStatusTask(id, newStatus, (isSuccess, message) -> {
-            Toast.makeText(this, "message", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             if (isSuccess) finish();
         });
     }
